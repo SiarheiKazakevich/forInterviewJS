@@ -1,1 +1,1 @@
-https://siarheikazakevich.github.io/forInterview/
+https://siarheikazakevich.github.io/forInterviewJS/
