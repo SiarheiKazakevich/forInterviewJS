@@ -41,4 +41,4 @@ function createBlocnotBody() {
   });
   document.body.appendChild(blocnotContainer);
 }
-createBlocnotBody();
+export { createBlocnotBody };
