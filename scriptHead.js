@@ -82,7 +82,7 @@ function createHeader() {
     rightBlock.style.background = "green";
 
     header.appendChild(rightBlock);
-  } catch {
+  } catch (error) {
     console.error("произошла ошибка menu: ", error);
   }
 }
