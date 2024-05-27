@@ -55,13 +55,15 @@ function createHeader() {
     menuList.style.margin = "0";
     menu.appendChild(menuList);
     // создаем пункты меню и добавляем их в список
-    for (let i = 1; i <= 4; i++) {
+    const menuItems = ["вопросы по JS", "памятка", "пункт3", "пункт4"];
+
+    for (let i = 0; i < menuItems.length; i++) {
       const menuItem = document.createElement("li");
       menuItem.style.listStyle = "none";
 
       const menuLink = document.createElement("a");
       menuLink.setAttribute("href", "#");
-      menuLink.textContent = "Пункт " + i;
+      menuLink.textContent = menuItems[i];
       menuLink.style.textDecoration = "none";
       menuLink.style.color = "black";
 
