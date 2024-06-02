@@ -1,4 +1,5 @@
 import { createBlocnotBody } from "./scriptblocnotBody.js";
+import { createBlocnotBody2 } from "./scriptblocnotBody2.js";
 
 function createHeader() {
   //header
@@ -97,6 +98,13 @@ function createHeader() {
             subMenuLink.addEventListener("click", (event) => {
               event.preventDefault(); //предотврращаем переход по ссылке
               createBlocnotBody(); // вызываем нужную функцию
+            });
+          }
+          // добавляем обработчик клика для "блок2"
+          if (subItem === "блок2") {
+            subMenuLink.addEventListener("click", (event) => {
+              event.preventDefault(); //предотврращаем переход по ссылке
+              createBlocnotBody2(); // вызываем нужную функцию
             });
           }
 
