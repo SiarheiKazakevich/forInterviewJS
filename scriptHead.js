@@ -1,3 +1,5 @@
+import { createBlocnotBody } from "./scriptblocnotBody.js";
+
 function createHeader() {
   //header
   try {
@@ -60,6 +62,7 @@ function createHeader() {
     for (let i = 0; i < menuItems.length; i++) {
       const menuItem = document.createElement("li");
       menuItem.style.listStyle = "none";
+      menuItem.style.position = "relative";
 
       const menuLink = document.createElement("a");
       menuLink.setAttribute("href", "#");
@@ -68,6 +71,53 @@ function createHeader() {
       menuLink.style.color = "black";
 
       menuItem.appendChild(menuLink);
+      //start underMenuBlock
+      if (i === 0) {
+        const subMenu = document.createElement("ul");
+        subMenu.style.display = "none";
+        subMenu.style.position = "absolute";
+        subMenu.style.top = "100%";
+        subMenu.style.left = "0";
+        subMenu.style.background = "white";
+        subMenu.style.border = "1px solid black";
+        subMenu.style.padding = "0";
+        subMenu.style.margin = "0";
+        subMenu.style.listStyle = "none";
+
+        const subMenuItems = ["блок1", "блок2"];
+        subMenuItems.forEach((subItem) => {
+          const subMenuItem = document.createElement("li");
+          const subMenuLink = document.createElement("a");
+          subMenuLink.setAttribute("href", "#");
+          subMenuLink.textContent = subItem;
+          subMenuLink.style.textDecoration = "none";
+          subMenuLink.style.color = "black";
+          // добавляем обработчик клика для "блок1"
+          if (subItem === "блок1") {
+            subMenuLink.addEventListener("click", (event) => {
+              event.preventDefault(); //предотврращаем переход по ссылке
+              createBlocnotBody(); // вызываем нужную функцию
+            });
+          }
+
+          subMenuItem.appendChild(subMenuLink);
+          subMenu.appendChild(subMenuItem);
+        });
+
+        menuItem.appendChild(subMenu);
+
+        // Показать/скрыть подменю при наведении
+
+        menuItem.addEventListener("mouseenter", () => {
+          subMenu.style.display = "block";
+        });
+
+        menuItem.addEventListener("mouseleave", () => {
+          subMenu.style.display = "none";
+        });
+      }
+      //finish underMenuBlock
+
       menuList.appendChild(menuItem);
     }
   } catch (error) {
